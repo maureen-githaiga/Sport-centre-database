@@ -1,0 +1,83 @@
+### Example data to be stored in database
+Some example data is given below.
+Categories
+• Muscular strength
+• Body maintenance
+• Indoor cycling
+Group exercise classes
+Below are given the name, description, duration in minutes and difficulty level of group exercise classes.
+Muscular strength category
+• Strength, Training muscles, 45, 2
+Body maintenance category
+• Basics of yoga, Learning yoga, 50, 1
+• Yoga 1, Keeping doing yoga, 50, 2
+• Pilates 1, Learning pilates, 60, 2
+Indoor cycling category
+• Basics of indoor cycling, Pedalling, 60, 1
+• Indoor cycling pro, Heavy stretches and tight spurts, 80, 4
+Instructors
+Below are given the instructor's name and date of birth
+• Elisa Markkanen, 1996-01-21
+o Can instruct group exercise classes Yoga 1, Basics of indoor cycling and Indoor cycling pro
+• Eero Ilonen, 1988-03-14
+o Can instruct group exercise classes Basics of yoga, Yoga 1, and Pilates 1
+• Mikko Kontinen, 2000-11-01
+o Can instruct group exercise classes Basics of indoor cycling and Indoor cycling pro
+Halls
+Below are given the name of the hall and number of places
+• Hall 1, 25
+• Cycling Hall, 20
+• Hall 3, 20
+
+Table g_class:
+gc_id  gc_name                       description                       duration  level  c_id
+-----  ----------------------------  --------------------------------  --------  -----  ----
+1      Strength                      Training muscles                  45        2      1
+2      Basics of yoga                Learning yoga                     50        1      2
+3      Yoga 1                        Keeping doing yoga                50        2      2
+4      Pilates 1                     Learning pilates                  60        2      2
+5      Basics of indoor cycling pro  Pedalling                         60        1      3
+6      Indoor cycling pro            Heavy stretches and tight spurts  80        4      3
+Table can_instruct;
+i_id  gc_id
+----  -----
+1     3
+1     5
+1     6
+2     2
+2     3
+2     4
+3     5
+3     6
+Table  tt_class;
+gc_id  day_of_week  start_time  end_time  max_participants  i_id  h_id
+-----  -----------  ----------  --------  ----------------  ----  ----
+3      Monday       08:10:00    9:00:00   10                1     3
+3      Monday       13:00:00    13:00:50  15                1     1
+3      Monday       20:10:00    21:00:00  10                1     3
+3      Tuesday      08:10:00    9:00:00   15                2     1
+4      Monday       08:00:00    9:00:00   15                2     1
+6      Monday       07:00:00    8:20:00   20                3     2
+5      Monday       10:45:00    11:45:00  20                3     2
+6      Friday       14:00:00    15:20:00  20                1     2
+
+Table hall;
+h_id  h_name        no_places
+----  ------------  ---------
+1     Hall 1        25
+2     Cycling Hall  20
+3     Hall 3        20
+
+Table  category;
+c_id  c_name
+----  -----------------
+1     Muscular strength
+2     Body Maintenance
+3     Indoor cycling
+Table  instructor;
+i_id  i_name           date_birth
+----  ---------------  -----------
+1     Elisa Markannen  1996-01-21
+2     Eero Ilonen       1988-03-14
+3     Mikko Kontinen   2000-11-01
+
